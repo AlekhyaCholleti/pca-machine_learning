@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-#import seaborn as sns
 
 
-df = pd.read_csv("/home/welcome/Downloads/ml_ai_dl/Pizza.csv", usecols = ["brand", "mois", "prot", "fat", "ash", "sodium", "carb", "cal"])
+
+df = pd.read_csv("./Pizza.csv", usecols = ["brand", "mois", "prot", "fat", "ash", "sodium", "carb", "cal"])
 #print(df)
 correlation = df.corr()
 #print(correlation)
@@ -15,8 +15,8 @@ X = df.iloc[:,1:8].values
 #print(X)
 #print(X.shape)
 y = df.iloc[:,0].values
-print(y)
-print(y.shape)
+#print(y)
+#print(y.shape)
 
 X_mean = np.mean(X, axis = 0)
 #print(X_mean)
@@ -24,10 +24,10 @@ X_mean = np.mean(X, axis = 0)
 X_deviation = np.std(X, axis =0)
 Z = (X - X_mean)/X_deviation
 #print(Z)
-print(Z.shape)
+#print(Z.shape)
 
 cov_mat = np.cov(Z.transpose())
-print(Z.shape)
+#print(Z.shape)
 #print(cov_mat)
 eig_vals, eig_vecs = np.linalg.eig(cov_mat)
 #print(eig_vals)
